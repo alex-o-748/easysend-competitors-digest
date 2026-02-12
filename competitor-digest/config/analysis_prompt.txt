@@ -1,9 +1,14 @@
-You are a competitive intelligence analyst. Below is scraped content from competitor websites collected this week.
+You are a competitive intelligence analyst. Below is scraped content from competitor blogs and news pages.
 
-For each competitor, summarize:
-1. Notable product updates or positioning changes
-2. Key messaging themes
-3. Pricing or packaging signals (if visible)
-4. Any concerning or noteworthy developments
+Today's date for context: {date}
 
-Format the output as a concise digest suitable for a weekly email. Be objective and factual.
+IMPORTANT: Focus ONLY on what happened or was published in the LAST WEEK. Ignore older content.
+
+For each competitor with relevant recent activity:
+- One topline summary
+- 1-2 short statements max
+- Include the source URL for each item (e.g. https://www.typeform.com/blog)
+
+Use PLAIN TEXT only. No markdown, no bold, no headers. Simple bullet points or short paragraphs.
+
+If a competitor had no relevant activity in the last week, omit them or say "No updates this week."

@@ -3,6 +3,7 @@
 
 import logging
 import sys
+from datetime import date, timedelta
 from pathlib import Path
 
 # Add project root for imports and config
@@ -11,11 +12,17 @@ sys.path.insert(0, str(PROJECT_ROOT))
 CONFIG_DIR = PROJECT_ROOT / "config"
 
 from dotenv import load_dotenv
-load_dotenv(PROJECT_ROOT / ".env")
+load_dotenv(PROJECT_ROOT / ".env", override=True)
 
 from src.analyzer import analyze, load_prompt
 from src.email_sender import send_email
 from src.scraper import scrape_all
+
+def _week_of_date() -> str:
+    """Return 'Week of Month DD, YYYY' for the most recently completed week."""
+    today = date.today()
+    last_monday = today - timedelta(days=today.weekday() + 7)
+    return f"{last_monday.strftime('%B')} {last_monday.day}, {last_monday.year}"
 
 logging.basicConfig(
     level=logging.INFO,
@@ -40,7 +47,9 @@ def main() -> int:
 
     # Analyze
     logger.info("Analyzing with Claude")
-    prompt = load_prompt(CONFIG_DIR)
+    prompt_template = load_prompt(CONFIG_DIR)
+    week_date = _week_of_date()
+    prompt = prompt_template.replace("{date}", week_date)
     try:
         digest = analyze(scraped, prompt)
     except Exception as e:
@@ -48,8 +57,9 @@ def main() -> int:
         return 1
 
     # Email
-    subject = f"Weekly Competitor Digest ({success_count}/{len(scraped)} competitors)"
-    body = digest
+    week_date = _week_of_date()
+    subject = f"Competitive Intelligence Digest - Week of {week_date}"
+    body = f"Competitive Intelligence Digest - Week of {week_date}\n\n{digest}"
     if success_count < len(scraped):
         body = (
             f"Note: {len(scraped) - success_count} competitor(s) could not be scraped.\n\n"

@@ -2,33 +2,43 @@ competitors:
   - name: Typeform
     url: https://www.typeform.com
     category: form_builders
+    paths: ["/blog"]
   - name: JotForm
     url: https://www.jotform.com
     category: form_builders
+    paths: ["/blog"]
   - name: Formstack
     url: https://www.formstack.com
     category: form_builders
+    paths: ["/blogs"]
   - name: Kissflow
     url: https://kissflow.com
     category: workflow_platforms
+    paths: ["/blog"]
   - name: Nintex
     url: https://www.nintex.com
     category: workflow_platforms
+    paths: ["/blog"]
   - name: ProcessMaker
     url: https://www.processmaker.com
     category: workflow_platforms
+    paths: ["/blog"]
   - name: Appian
     url: https://www.appian.com
     category: low_code
+    paths: ["/blog", "/news"]
   - name: OutSystems
     url: https://www.outsystems.com
     category: low_code
+    paths: ["/blog"]
   - name: Duck Creek
     url: https://www.duckcreek.com
     category: vertical_insurance
+    paths: ["/blog", "/news"]
   - name: Guidewire
     url: https://www.guidewire.com
     category: vertical_insurance
+    paths: ["/blog", "/news"]
 
 scrape_paths:
-  default: ["/"]
+  default: ["/blog"]
