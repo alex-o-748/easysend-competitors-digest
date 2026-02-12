@@ -1,0 +1,34 @@
+competitors:
+  - name: Typeform
+    url: https://www.typeform.com
+    category: form_builders
+  - name: JotForm
+    url: https://www.jotform.com
+    category: form_builders
+  - name: Formstack
+    url: https://www.formstack.com
+    category: form_builders
+  - name: Kissflow
+    url: https://kissflow.com
+    category: workflow_platforms
+  - name: Nintex
+    url: https://www.nintex.com
+    category: workflow_platforms
+  - name: ProcessMaker
+    url: https://www.processmaker.com
+    category: workflow_platforms
+  - name: Appian
+    url: https://www.appian.com
+    category: low_code
+  - name: OutSystems
+    url: https://www.outsystems.com
+    category: low_code
+  - name: Duck Creek
+    url: https://www.duckcreek.com
+    category: vertical_insurance
+  - name: Guidewire
+    url: https://www.guidewire.com
+    category: vertical_insurance
+
+scrape_paths:
+  default: ["/"]
