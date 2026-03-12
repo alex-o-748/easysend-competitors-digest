@@ -2,8 +2,8 @@ name: Weekly Competitor Digest
 
 on:
   schedule:
-    # Temporary: test run at ~21:51 UTC, then revert to Mondays 9:00 AM UTC
-    - cron: "51 21 * * *"
+    # Mondays at 9:00 AM UTC
+    - cron: "0 9 * * 1"
   workflow_dispatch:  # Allow manual run
 
 jobs:
